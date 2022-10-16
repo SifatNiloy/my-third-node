@@ -4,6 +4,8 @@ const app = express();
 const port = 5000;
 
 app.use(cors());
+app.use(express.json());
+
 app.get('/', (req, res) => {
 
     res.send('hello from node. this text is changed.')
@@ -28,7 +30,14 @@ app.get('/users', (req, res) => {
         res.send(users)
     }
 })
-
+app.post('/users', (req, res) => {
+    const newUser = req.body;
+    newUser.id = users.length;
+    users.push(newUser);
+    console.log('hitting the post', req.body)
+    // res.send(JSON.stringify(newUser));
+    res.json(newUser);
+})
 app.get('/users/:id', (req, res) => {
     const id = req.params.id;
     const user = users[id];
