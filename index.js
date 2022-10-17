@@ -8,7 +8,7 @@ app.use(express.json());
 
 app.get('/', (req, res) => {
 
-    res.send('hello from node. this text is changed.')
+    res.send(' this is my exciting node. ')
 
 })
 const users = [
@@ -20,6 +20,8 @@ const users = [
     { id: 5, name: 'johny deep', email: 'johnydeep@gmail.com', phone: "3456323982" },
     { id: 6, name: 'christian bale', email: 'baleom@gmail.com', phone: " 54353453482" },
 ]
+
+
 app.get('/users', (req, res) => {
     const search = req.query.search;
     if (search) {
